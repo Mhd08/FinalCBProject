@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster & Emergency Alert App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="weather.html">Weather & Forecasting</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div class="main">
+                <h1>Stay Informed, Stay Safe</h1>
+                <p>Real-time disaster alerts and safety information at your fingertips.</p>
+                <a href="news.html" class="button">Get Started</a>
+            </div>
+
+            <div class="features">
+                <div class="details">
+                    <h2>Features</h2>
+                    <p>Real-time weather alerts, accurate forecasting, and timely notifications to keep you informed and prepared.</p>
+                </div>
+                <ul>
+                    <li>Displays 3-hour and 5-day forecasts with real-time weather updates.</li>
+                    <li>Sections for general news</li>
+                    <li>Natural disaster reports with live updates.</li>
+                    <li>Subscribe to our newsletter for the latest updates and news.</li>
+                    <li>Contact us for any inquiries or support.</li>
+                </ul>
+            </div>
+        
+            <div class="section-container">
+                <div class="newsletter">
+                    <div class="details">
+                        <h2>Subscribe to our Newsletter</h2>
+                        <p>Get the latest updates and news delivered to your inbox.</p>
+                    </div>
+                    <form>
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="section-container">
+                <div class="contact-us">
+                    <div class="details">
+                        <h2>Contact Us</h2>
+                        <p>Feel free to reach out to us for any inquiries or support.</p>
+                    </div>
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" required></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Made by Mohammed Shoura.</p>
+        </footer>
+    </div>
+
+    <button class="light-mode-button" onclick="changeTheme()"> <img id="theme-icon" src="sun-solid.svg" alt="Theme Icon" /> </button>
+
+    <script src="script.js"></script>
+</body>
+</html>

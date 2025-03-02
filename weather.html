@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather & Forecasting</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 100;
+            color: #ffffff;
+            background-color: #2c2c2c;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            width: 100%;
+            padding: 1rem;
+            background-color: #333;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-bar ul {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        .nav-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 100;
+            border-radius: 5px;
+            padding: 0.6rem 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .nav-bar a:hover {
+            background-color: #555;
+        }
+
+        .hourly-forecast, .weekly-forecast {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 1rem;
+        }
+        .forecast {
+            flex: 1 1 calc(8% - 3rem);
+            background-color: #555;
+            margin: 0.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .forecast h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .forecast p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .forecast-title {
+            text-align: center;
+            font-size: 2rem;
+            margin: 2rem 0;
+            color: #ffffff;
+            font-weight: 100;
+        }
+        h1, h2 {
+            font-weight: 100;
+        }
+        .details-container {
+            margin-top: 1.5rem;
+        }
+        .temp-section {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .temp-section p {
+            margin: 0 1rem;
+        }
+
+        .weather-description {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        .weather-description img {
+            margin-left: 0.5rem;
+        }
+
+        .news-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .news-article {
+            background-color: #555;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .article-image {
+            width: 100%;
+            padding-top: 56.25%;
+            background-color: #333;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+        }
+
+        .news-article h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-article p {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        .content-wrapper {
+            background-color: #2c2c2c;
+        }
+
+        .news-section-url {
+            text-align: center;
+            display: block;
+            color: #ffffff;
+            background-color: #333;
+            padding: .3rem;
+            text-decoration: none;
+            transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+            margin-top: 1rem;
+        }
+
+        .news-section-url:hover {
+            background-color: #444;
+        }
+
+        .light-mode-button {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            padding: 0.6rem 1.2rem;
+            background-color: #d3d3d3;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 1rem;
+            z-index: 1000; 
+            
+        }
+
+        .light-mode-button:hover {
+            background-color: #555;
+        }
+
+        .light-mode {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        .light-mode .news-image-container img {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        .light-mode-button img {
+            width: 2rem;
+            height: 2rem;
+        }
+
+
+        .news-image-container {
+            width: 100%;   
+            height: 0;
+            padding-bottom: 56.3%;
+            margin-bottom: 0.6rem; 
+            border-radius: 0.3rem; 
+            overflow: hidden;
+        }
+        
+        
+        .light-mode .news-image-container img {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        .light-mode-button img {
+            width: 2rem;
+            height: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <header>
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="weather.html">Weather & Forecasting</a></li>
+                </ul>
+            </nav>
+        </header>
+        <h2 class="forecast-title">Today's Weather</h2>
+        <div class="hourly-forecast" id="hourly-forecast">
+            <div class="forecast">
+                <h3>12 AM</h3>
+                <p>20°C</p>
+            </div>
+            <div class="forecast">
+                <h3>1 AM</h3>
+                <p>19°C</p>
+            </div>
+            <div class="forecast">
+                <h3>2 AM</h3>
+                <p>18°C</p>
+            </div>
+        </div>
+        <h2 class="forecast-title">This Week's Weather</h2>
+        <div class="weekly-forecast" id="weekly-forecast">
+            <div class="forecast" id="thursday">
+                <h3>Thursday</h3>
+                <div class="details-container">
+                    <div class="temp-section">
+                        <p class="morning-temp">Morning Temp: 19°C</p>
+                        <p class="night-temp">Night Temp: 21°C</p>
+                    </div>
+                    <p class="humidity">Humidity: 75%</p>
+                    <div class="weather-description">
+                        <p class="description">Stormy</p>
+                        <img class="weather-icon" id="thursday-icon" src="stormy-icon.png" alt="Stormy Icon">
+                    </div>
+                </div>
+            </div>
+            <div class="forecast" id="friday">
+                <h3>Friday</h3>
+                <div class="details-container">
+                    <div class="temp-section">
+                        <p class="morning-temp">Morning Temp: 18°C</p>
+                        <p class="night-temp">Night Temp: 20°C</p>
+                    </div>
+                    <p class="humidity">Humidity: 80%</p>
+                    <div class="weather-description">
+                        <p class="description">Windy</p>
+                        <img class="weather-icon" id="friday-icon" src="windy-icon.png" alt="Windy Icon">
+                    </div>
+                </div>
+            </div>
+            <div class="forecast" id="saturday">
+                <h3>Saturday</h3>
+                <div class="details-container">
+                    <div class="temp-section">
+                        <p class="morning-temp">Morning Temp: 17°C</p>
+                        <p class="night-temp">Night Temp: 19°C</p>
+                    </div>
+                    <p class="humidity">Humidity: 85%</p>
+                    <div class="weather-description">
+                        <p class="description">Snowy</p>
+                        <img class="weather-icon" id="saturday-icon" src="snowy-icon.png" alt="Snowy Icon">
+                    </div>
+                </div>
+            </div>
+            <div class="forecast" id="sunday">
+                <h3>Sunday</h3>
+                <div class="details-container">
+                    <div class="temp-section">
+                        <p class="morning-temp">Morning Temp: 16°C</p>
+                        <p class="night-temp">Night Temp: 18°C</p>
+                    </div>
+                    <p class="humidity">Humidity: 90%</p>
+                    <div class="weather-description">
+                        <p class="description">Foggy</p>
+                        <img class="weather-icon" id="sunday-icon" src="foggy-icon.png" alt="Foggy Icon">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="forecast-title">Latest News</h2>
+        <div class="news-section">
+            <div class="news-article">
+                <div class="article-image news1"></div>
+                <h3>News Title 1</h3>
+                <p>News content goes here...</p>
+            </div>
+            <div class="news-article">
+                <div class="article-image news2"></div>
+                <h3>News Title 2</h3>
+                <p>News content goes here...</p>
+            </div>
+            <div class="news-article">
+                <div class="article-image news3"></div>
+                <h3>News Title 3</h3>
+                <p>News content goes here...</p>
+            </div>
+            <div class="news-article">
+                <div class="article-image news4"></div>
+                <h3>News Title 4</h3>
+                <p>News content goes here...</p>
+            </div>
+        </div>
+        <footer>
+            <p>Made By Mohammed Shoura.</p>
+        </footer>
+    </div>
+    <button class="light-mode-button" onclick="changeTheme()"> <img id="theme-icon" src="sun-solid.svg" alt="Theme Icon" /> </button>
+    <script src="script.js"></script>
+    <script src="weather-script.js"></script>
+</body>
+</html>

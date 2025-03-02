@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            font-size: 1rem;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 100;
+            color: #ffffff; 
+            background-color: #2c2c2c; 
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .navbar-header {
+            width: 100%;
+            padding: 1rem;
+            background-color: #333;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-bar ul {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        h2, h1 {
+            font-weight: 100;
+        }
+
+        .nav-bar li {
+            margin: 0;
+        }
+
+        .nav-bar a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 100;
+            border-radius: 0.3rem;
+            padding: 0.6rem 1.2rem;
+            font-size: 1.2rem;
+        }
+
+        .nav-bar a:hover {
+            background-color: #555;
+        }
+
+        .header {
+            width: 100%;
+            padding: 1rem;
+            background-color: #333;
+            text-align: center;
+            margin: 2rem 0; 
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+            padding: 1.3rem;
+        }
+
+        .content {
+            flex: 3;
+            padding-right: 1.3rem;
+        }
+
+        .static-sections {
+            flex: 1;
+            position: sticky;
+            top: 0;
+            padding: 1.3rem;
+            background-color: #2c2c2c;
+            border-left: 0.1rem solid #555;
+            border-radius: 0.3rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.3rem;
+        }
+
+
+        .news-section, .disaster-section {
+            margin-bottom: 1.3rem;
+            background-color: #333;
+            padding: 1rem;
+            border-radius: 0.3rem; 
+            color: #ffffff;
+        }
+
+        .news-image-container {
+            width: 100%;   
+            height: 0;
+            padding-bottom: 56.3%;
+            margin-bottom: 0.6rem; 
+            border-radius: 0.3rem; 
+            overflow: hidden;
+        }
+
+
+
+        .disaster-container {
+            display: flex;
+            gap: 1.3rem; /* 20px */
+        }
+
+        .disaster-section {
+            flex: 1;
+        }
+
+        .news-section p, .disaster-section p {
+            margin-top: 0.1rem;
+            color: #d3d3d3;
+        }
+
+        .footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem 0;
+            border-radius: 0.3rem; 
+        }
+
+        .light-mode-button {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            padding: 0.6rem 1.2rem;
+            background-color: #d3d3d3;
+            color: #ffffff;
+            border: none;
+            border-radius: 0.3rem;
+            cursor: pointer;
+            font-size: 1rem;
+            z-index: 1000; 
+            
+        }
+        
+        .static-sections {
+            position: sticky;
+        }
+
+        .light-mode-button:hover {
+            background-color: #555;
+        }
+
+        .light-mode {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        .light-mode .news-image-container img {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+
+        .content-wrapper {
+            background-color: #2c2c2c;
+        }
+
+        .light-mode-button img {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .news-section-url {
+            text-align: center;
+            display: block;
+            color: #ffffff;
+            background-color: #555;
+            padding: .3rem;
+            text-decoration: none;
+            transition: .3s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        .news-section-url:hover {
+            background-color: #777;
+        }
+
+        @media (max-width: 500px) { 
+            .static-sections {
+                display: none;
+            }
+
+            .news-section h2 {
+                font-size: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="navbar-header">
+            <nav class="nav-bar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="weather.html">Weather & Forecasting</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="header">
+            <h1>Latest News and Natural Disaster Alerts</h1>
+        </div>
+        
+        <div class="main">
+            <div class="content">
+                <div class="disaster-container">
+                    <div class="disaster-section">
+                        <div class="article-image"></div>
+                        <h2>Natural Disaster Alert 1</h2>
+                        <p>Content for natural disaster alert 1...</p>
+                    </div>
+                    
+                    <div class="disaster-section">
+                        <div class="article-image"></div>
+                        <h2>Natural Disaster Alert 2</h2>
+                        <p>Content for natural disaster alert 2...</p>
+                    </div>
+                </div>
+                
+                <div class="grid-container">
+                    <div id="news-container"></div>
+                </div>
+            </div>
+            
+            <div class="static-sections">
+                <div id="static-container"></div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made by Mohammed Shoura.</p>
+        </div>
+    </div>
+
+    <button class="light-mode-button" onclick="changeTheme()"> <img id="theme-icon" src="sun-solid.svg" alt="Theme Icon" /> </button>
+
+
+    <script src="script.js"></script>
+    <script src="news-script.js"></script>
+</body>
+</html>
